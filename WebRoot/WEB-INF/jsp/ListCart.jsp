@@ -8,14 +8,14 @@
     
     <script type="text/javascript">
        function deleteitem(id){
-           var b = window.confirm("确认删除？");
+           var b = window.confirm("Are you sure to delete this product？");
            if(b){
            		window.location.href="${pageContext.request.contextPath }/servlet/DeleteItemServlet?id="+id;
            }
        }
        
        function clearcart(){
-         	var b = window.confirm("确认清空购物车？");
+         	var b = window.confirm("Are you sure to clear your shopping cart？");
          	if(b){
          		window.location.href="${pageContext.request.contextPath }/servlet/ClearCartServlet";
          	}
@@ -27,19 +27,19 @@
              /*
              //验证输入是否为数字
                if(isNaN(quantity)){
-             	  alert("请输入数字！");
+             	  alert("Please enter a number！");
              	  input.value=previousValue;
              	  return;
              }*/
              
              //验证输入是否为正整数
                if(quantity<0||quantity!=parseInt(quantity)){
-             	  alert("请输入正整数！");
+             	  alert("Please enter a Integer！");
              	  input.value=previousValue;
              	  return;
              }
             
-               var b =window.confirm("确定将数量修改为"+quantity+"？");
+               var b =window.confirm("Are you sure to change the quantity to "+quantity+"？");
              if(b){
                  window.location.href="${pageContext.request.contextPath }/servlet/ChangeQuantityServlet?id="+id+"&quantity="+quantity;
              }
@@ -59,12 +59,12 @@
      <c:if test="${!empty(cart.map) }">
      <table width="70%" border="1">
         <tr>
-           <td>名称</td>
-           <td>厂商</td>
-           <td>单价</td>
-           <td>数量</td>
-           <td>小计</td>
-           <td>操作类型</td>
+           <td>Product</td>
+           <td>Brand</td>
+           <td>Price</td>
+           <td>Quantity</td>
+           <td>Subtotal</td>
+           <td>Operation</td>
         </tr>
     
         <c:forEach var="entry" items="${cart.map }">  <!-- entry<id,CartItem> -->
@@ -77,19 +77,20 @@
 	               <input type="text" name="quantity" value="${entry.value.quantity }" style="width:35" onchange="changeQuantity(this,${entry.key },${entry.value.quantity })" />
 	           </td>
 	           <td>${entry.value.price }</td>
-	           <td><a href="javascript:void(0)" onclick="deleteitem(${entry.key})">删除</a></td>
+	           <td><a href="javascript:void(0)" onclick="deleteitem(${entry.key})">delete</a></td>
            </tr>
         </c:forEach>
         
         <tr>
-        	<td colspan="6" style="text-align:center">总价</td>
+        	<td colspan="6" style="text-align:center"> <a href="javascript:void(0)" onclick="clearcart()" > Clear your cart </a> </td>
         </tr>
         <tr>
-        	<td colspan="6" style="text-align:center">${cart.price } 元</td>
+        	<td colspan="6" style="text-align:center">Total: ${cart.price } RMB</td>
         </tr>
-         <tr>
-        	<td colspan="6" style="text-align:center"><a href="javascript:void(0)" onclick="clearcart()">清空购物车</a></td>
+        <tr>
+        	<td colspan="6" style="text-align:center"><a href="${pageContext.request.contextPath }/servlet/PaymentServlet?amount=${cart.price }" >Pay Now</a></td>
         </tr>
+ 
      </table>
      </c:if>
      

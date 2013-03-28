@@ -11,11 +11,11 @@
      
      <table width="70%" border="1">
         <tr>
-           <td>名称</td>
-           <td>厂商</td>
-           <td>价格</td>
-           <td>描述信息</td>
-           <td>操作类型</td>
+           <td>Product</td>
+           <td>Brand</td>
+           <td>Price</td>
+           <td>Description</td>
+           <td>Operation</td>
         </tr>
     
         <c:forEach var="entry" items="${map }"> 
@@ -25,7 +25,7 @@
 	           <td>${entry.value.brand }</td>
 	           <td>${entry.value.price }</td>
 	           <td>${entry.value.description }</td>
-	           <td><a href="${pageContext.request.contextPath }/servlet/BuyServlet?id=${entry.key}" target="_blank">加入购物车</a></td>
+	           <td><a href="${pageContext.request.contextPath }/servlet/BuyServlet?id=${entry.key}" target="_blank">Add to shopping cart</a></td>
            </tr>   
         </c:forEach>
      </table>

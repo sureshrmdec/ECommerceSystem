@@ -6,28 +6,77 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name></display-name>
   <servlet>
-    <description>发起支付请求</description>
-    <display-name>发起支付请求</display-name>
+    <servlet-name>ListProductServlet</servlet-name>
+    <servlet-class>webController.ListProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BuyServlet</servlet-name>
+    <servlet-class>webController.BuyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListCartUIServlet</servlet-name>
+    <servlet-class>webUI.ListCartUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteItemServlet</servlet-name>
+    <servlet-class>webController.DeleteItemServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ClearCartServlet</servlet-name>
+    <servlet-class>webController.ClearCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ChangeQuantityServlet</servlet-name>
+    <servlet-class>webController.ChangeQuantityServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>PaymentRequest</servlet-name>
     <servlet-class>service.PaymentRequest</servlet-class>
   </servlet>
   <servlet>
-    <description>Payment response</description>
-    <display-name>Payment response</display-name>
-    <servlet-name>PaymentResultResponse</servlet-name>
-    <servlet-class>service.PaymentResultResponse</servlet-class>
+    <servlet-name>PaymentServlet</servlet-name>
+    <servlet-class>webController.PaymentServlet</servlet-class>
   </servlet>
 
 
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>ListProductServlet</servlet-name>
+    <url-pattern>/servlet/ListProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BuyServlet</servlet-name>
+    <url-pattern>/servlet/BuyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListCartUIServlet</servlet-name>
+    <url-pattern>/servlet/ListCartUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteItemServlet</servlet-name>
+    <url-pattern>/servlet/DeleteItemServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ClearCartServlet</servlet-name>
+    <url-pattern>/servlet/ClearCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangeQuantityServlet</servlet-name>
+    <url-pattern>/servlet/ChangeQuantityServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>PaymentRequest</servlet-name>
-    <url-pattern>/servlet/yeepay/paymentRequest</url-pattern>
+    <url-pattern>/servlet/yeepay/PaymentRequest</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>PaymentResultResponse</servlet-name>
-    <url-pattern>/servlet/yeepay/PaymentResultResponse</url-pattern>
-  </servlet-mapping>
-  	
+    <servlet-name>PaymentServlet</servlet-name>
+    <url-pattern>/servlet/PaymentServlet</url-pattern>
+  </servlet-mapping>	
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

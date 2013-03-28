@@ -14,19 +14,17 @@ public class PaymentRequest extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doPost(request,response);
-	}
-
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("GBK");
 		
 		String orderid = request.getParameter("orderid"); //order id
 		String amount = request.getParameter("amount"); //money amount
+		
 		String pd_FrpId = request.getParameter("pd_FrpId"); //bank
-		String p1_MerId = ConfigInfo.getValue("p1_MerId");
+		
+		String p1_MerId = ConfigInfo.getValue("p1_MerId"); //从配置文件读取信息 ConfigInfo
 		String keyValue = ConfigInfo.getValue("keyValue");
+		
 		String merchantCallbackURL = ConfigInfo.getValue("merchantCallbackURL");
 
 		String messageType = "Buy"; // 请求命令,在线支付固定为Buy
@@ -36,8 +34,8 @@ public class PaymentRequest extends HttpServlet {
 		String productId = ""; // 商品ID
 		String addressFlag = "0"; // 需要填写送货信息 0：不需要 1:需要		
 		String sMctProperties = ""; // 商家扩展信息
-		
 		String pr_NeedResponse = "0"; // 应答机制
+		
 		String md5hmac = EPaymentUtils.buildHmac(messageType, p1_MerId, orderid, amount, currency,
 				productId, productCat, productDesc, merchantCallbackURL, addressFlag, sMctProperties, 
 				pd_FrpId, pr_NeedResponse, keyValue);
@@ -57,7 +55,13 @@ public class PaymentRequest extends HttpServlet {
 		request.setAttribute("pr_NeedResponse", pr_NeedResponse);
 		request.setAttribute("hmac", md5hmac);
 		
-		request.getRequestDispatcher("/WEB-INF/page/connection.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/connection.jsp").forward(request, response);
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		doGet(request, response);
 	}
 
 }
