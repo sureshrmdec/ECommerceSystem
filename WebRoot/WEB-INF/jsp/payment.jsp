@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>ePayment - First Step</title>
+    <title>ePayment </title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -12,9 +12,9 @@
   </head>
   
   <body>
-  <table width="960" border="0" align="center">
+  <table width="100%"  border="0" >
     <tr>
-      <td width="536" valign="top">
+      <td width="100%" valign="top">
 	    <form action="${pageContext.request.contextPath}/servlet/yeepay/PaymentRequest?orderid=${orderid }&amount=${amount }" method="post" name="paymentform">
 	       <table width="100%" border="0">
 	            <tr>

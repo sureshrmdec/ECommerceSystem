@@ -5,16 +5,15 @@
 <html>
   <head>
     <title>Renmin Mall</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
+	<style> 
+　　a{text-decoration:none;}
+　 </style>
 	
   </head>
   
   <body>
-     <h3>Welcome to Renmin Mall</h3>
-     <a href="${pageContext.request.contextPath }/servlet/ListProductServlet">browse products</a>
+     <h3 align="center">Welcome to Renmin Mall</h3>
+     <h4 align="center" ><a href="${pageContext.request.contextPath }/servlet/ListProductServlet"  text-decoration: none>browse products</a></h4>
+  
   </body>
 </html>

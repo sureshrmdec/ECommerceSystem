@@ -4,7 +4,7 @@
 
 <html>
   <head>
-    <title>购物车</title>
+    <title>Shopping Cart</title>
     
     <script type="text/javascript">
        function deleteitem(id){
@@ -49,27 +49,29 @@
   </head>
   
   <body>
-     <h2>Cart购物车列表</h2>
+     <h2 align="center">Shopping Cart</h2>
      
      
      <c:if test="${empty(cart.map) }">
-            您未购买任何商品。
+            <h4 align="center">You haven't bought anything yet。</h4>
      </c:if>
      
      <c:if test="${!empty(cart.map) }">
-     <table width="70%" border="1">
+     <table width="100%" >
         <tr>
+           <td>  </td>
            <td>Product</td>
            <td>Brand</td>
            <td>Price</td>
            <td>Quantity</td>
            <td>Subtotal</td>
-           <td>Operation</td>
+           <td>  </td>
         </tr>
     
         <c:forEach var="entry" items="${cart.map }">  <!-- entry<id,CartItem> -->
         <!-- entry<id,book> -->
            <tr>
+	           <td><img width="90" height="90" src="../image/${entry.key}.png" /></td>
 	           <td>${entry.value.computer.name }</td>
 	           <td>${entry.value.computer.brand }</td>
 	           <td>${entry.value.computer.price }</td>
