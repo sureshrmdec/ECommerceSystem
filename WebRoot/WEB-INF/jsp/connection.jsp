@@ -31,7 +31,7 @@
 		<!-- MD5-hmacÑéÖ¤Âë -->
 		<input type='hidden' name='hmac' value="${hmac}">
 		
-		<input type='submit' value='submit'>
+		<!--  <input type='submit' value='submit'> -->
 	</form>
   </body>
 </html>

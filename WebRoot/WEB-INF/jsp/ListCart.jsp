@@ -5,7 +5,23 @@
 <html>
   <head>
     <title>Shopping Cart</title>
-    
+     <style >
+         .d1{
+	  		position:relative;
+	   	    margin:0 auto;     
+	        margin-top:5%;
+	        width:800px
+          }
+          .a1{
+      		 color:blue;
+             text-decoration:none
+          }
+          .a2{
+      		 color:red;
+             text-decoration:none
+          }
+          
+    </style >
     <script type="text/javascript">
        function deleteitem(id){
            var b = window.confirm("Are you sure to delete this product？");
@@ -49,6 +65,7 @@
   </head>
   
   <body>
+   <div class="d1">
      <h2 align="center">Shopping Cart</h2>
      
      
@@ -79,22 +96,22 @@
 	               <input type="text" name="quantity" value="${entry.value.quantity }" style="width:35" onchange="changeQuantity(this,${entry.key },${entry.value.quantity })" />
 	           </td>
 	           <td>${entry.value.price }</td>
-	           <td><a href="javascript:void(0)" onclick="deleteitem(${entry.key})">delete</a></td>
+	           <td><a class="a1" href="javascript:void(0)" onclick="deleteitem(${entry.key})">delete</a></td>
            </tr>
         </c:forEach>
         
         <tr>
-        	<td colspan="6" style="text-align:center"> <a href="javascript:void(0)" onclick="clearcart()" > Clear your cart </a> </td>
+        	<td colspan="6" style="text-align:center"> <a class="a1"  href="javascript:void(0)" onclick="clearcart()"> Clear your cart </a> </td>
         </tr>
         <tr>
         	<td colspan="6" style="text-align:center">Total: ${cart.price } RMB</td>
         </tr>
         <tr>
-        	<td colspan="6" style="text-align:center"><a href="${pageContext.request.contextPath }/servlet/PaymentServlet?amount=${cart.price }" >Pay Now</a></td>
+        	<td colspan="6" style="text-align:center"><a class="a2" href="${pageContext.request.contextPath }/servlet/PaymentServlet?amount=${cart.price }" ><B>Pay Now</B></a></td>
         </tr>
  
      </table>
      </c:if>
-     
+    </div>
   </body>
 </html>
