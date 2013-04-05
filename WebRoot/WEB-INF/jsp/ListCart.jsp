@@ -89,14 +89,14 @@
         <!-- entry<id,book> -->
            <tr>
 	           <td><img width="90" height="90" src="../image/${entry.key}.png" /></td>
-	           <td>${entry.value.computer.name }</td>
-	           <td>${entry.value.computer.brand }</td>
-	           <td>${entry.value.computer.price }</td>
+	           <td><B>${entry.value.computer.name }</B></td>
+	           <td><B>${entry.value.computer.brand }</B></td>
+	           <td><B>${entry.value.computer.price }</B></td>
 	           <td>
 	               <input type="text" name="quantity" value="${entry.value.quantity }" style="width:35" onchange="changeQuantity(this,${entry.key },${entry.value.quantity })" />
 	           </td>
-	           <td>${entry.value.price }</td>
-	           <td><a class="a1" href="javascript:void(0)" onclick="deleteitem(${entry.key})">delete</a></td>
+	           <td><B>${entry.value.price }</B></td>
+	           <td><a class="a1" href="javascript:void(0)" onclick="deleteitem(${entry.key})"><B>delete</B></a></td>
            </tr>
         </c:forEach>
         
