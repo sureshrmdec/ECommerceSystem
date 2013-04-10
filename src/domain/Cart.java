@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Cart {
-	
 	private Map<String, CartItem> map = new LinkedHashMap();
 	private double price; //购物车里所有商品的价格
 	
@@ -43,6 +42,4 @@ public class Cart {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
-	
 }

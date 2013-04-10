@@ -9,11 +9,13 @@ import domain.Computer;
 
 //业务类，统一为web层提供服务
 public class BusinessService {
-	
 	private DAO dao = new DAO();
 	
 	public Map getAllComputer(){
 		return dao.getAll();
+	}
+	public Map getBrandComputer(String brand){
+		return dao.getBrand(brand);
 	}
 	
 	public Computer findComputer(String id){
@@ -32,4 +34,6 @@ public class BusinessService {
 		CartItem item = cart.getMap().get(id);
 		item.setQuantity(Integer.parseInt(quantity));
 	}
+	
+	
 }

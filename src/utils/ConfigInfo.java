@@ -1,14 +1,11 @@
 package utils;
 
-import java.util.Properties;
 import java.util.ResourceBundle;
-/**
- * 读取配置文件
- *
- */
+
+
+//读取配置文件
 public class ConfigInfo {
-	
-	private static ResourceBundle cache = null;
+private static ResourceBundle cache = null;
 	
 	static{
 		try {

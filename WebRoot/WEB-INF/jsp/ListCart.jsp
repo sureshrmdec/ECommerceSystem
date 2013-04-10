@@ -1,117 +1,115 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%@include  file="header2.jsp"%>
+<body>
+	<script type="text/javascript"
+		src="http://misc.360buyimg.com/lib/js/2012/base-2011.js"
+		charset="gb2312"></script>
+	<div id="shortcut-2013">
+		<div class="w">
+			<ul class="fl lh">
+				<li class="fore1 ld"><b></b><a
+					href="javascript:addToFavorite()" rel="nofollow">Add to
+						favourite</a></li>
+			</ul>
+			<ul class="fr lh">
+				<li>Welcome to Renmin Mall！<span> </span></li>
+			</ul>
+			<span class="clr"></span>
+		</div>
+	</div>
 
-<html>
-  <head>
-    <title>Shopping Cart</title>
-     <style >
-         .d1{
-	  		position:relative;
-	   	    margin:0 auto;     
-	        margin-top:5%;
-	        width:800px
-          }
-          .a1{
-      		 color:blue;
-             text-decoration:none
-          }
-          .a2{
-      		 color:red;
-             text-decoration:none
-          }
-          
-    </style >
-    <script type="text/javascript">
-       function deleteitem(id){
-           var b = window.confirm("Are you sure to delete this product？");
-           if(b){
-           		window.location.href="${pageContext.request.contextPath }/servlet/DeleteItemServlet?id="+id;
-           }
-       }
-       
-       function clearcart(){
-         	var b = window.confirm("Are you sure to clear your shopping cart？");
-         	if(b){
-         		window.location.href="${pageContext.request.contextPath }/servlet/ClearCartServlet";
-         	}
-       }
-       
-       function changeQuantity(input,id,previousValue){
-            var quantity = input.value; //得到要修改的数量
-             
-             /*
-             //验证输入是否为数字
-               if(isNaN(quantity)){
-             	  alert("Please enter a number！");
-             	  input.value=previousValue;
-             	  return;
-             }*/
-             
-             //验证输入是否为正整数
-               if(quantity<0||quantity!=parseInt(quantity)){
-             	  alert("Please enter a Integer！");
-             	  input.value=previousValue;
-             	  return;
-             }
-            
-               var b =window.confirm("Are you sure to change the quantity to "+quantity+"？");
-             if(b){
-                 window.location.href="${pageContext.request.contextPath }/servlet/ChangeQuantityServlet?id="+id+"&quantity="+quantity;
-             }
-       }
-       
-    </script>
-  </head>
-  
-  <body>
-   <div class="d1">
-     <h2 align="center">Shopping Cart</h2>
-     
-     
-     <c:if test="${empty(cart.map) }">
-            <h4 align="center">You haven't bought anything yet。</h4>
-     </c:if>
-     
-     <c:if test="${!empty(cart.map) }">
-     <table width="100%" >
-        <tr>
-           <td>  </td>
-           <td>Product</td>
-           <td>Brand</td>
-           <td>Price</td>
-           <td>Quantity</td>
-           <td>Subtotal</td>
-           <td>  </td>
-        </tr>
-    
-        <c:forEach var="entry" items="${cart.map }">  <!-- entry<id,CartItem> -->
-        <!-- entry<id,book> -->
-           <tr>
-	           <td><img width="90" height="90" src="../image/${entry.key}.png" /></td>
-	           <td><B>${entry.value.computer.name }</B></td>
-	           <td><B>${entry.value.computer.brand }</B></td>
-	           <td><B>${entry.value.computer.price }</B></td>
-	           <td>
-	               <input type="text" name="quantity" value="${entry.value.quantity }" style="width:35" onchange="changeQuantity(this,${entry.key },${entry.value.quantity })" />
-	           </td>
-	           <td><B>${entry.value.price }</B></td>
-	           <td><a class="a1" href="javascript:void(0)" onclick="deleteitem(${entry.key})"><B>delete</B></a></td>
-           </tr>
-        </c:forEach>
-        
-        <tr>
-        	<td colspan="6" style="text-align:center"> <a class="a1"  href="javascript:void(0)" onclick="clearcart()"> Clear your cart </a> </td>
-        </tr>
-        <tr>
-        	<td colspan="6" style="text-align:center">Total: ${cart.price } RMB</td>
-        </tr>
-        <tr>
-        	<td colspan="6" style="text-align:center"><a class="a2" href="${pageContext.request.contextPath }/servlet/PaymentServlet?amount=${cart.price }" ><B>Pay Now</B></a></td>
-        </tr>
- 
-     </table>
-     </c:if>
-    </div>
+	<div class="w w1 header clearfix">
+		<div id="logo">
+			<a href="http://localhost:8080/ShoppingCart"><img
+				clstag="clickcart|keycount|xincart|logo" src="../image/logo.png">
+			</a>
+		</div>
+
+		<div class="progress clearfix">
+			<ul class="progress-1">
+				<li class="step-1"><b></b>1.My Shopping Cart</li>
+
+				<li class="step-3">2.Submit your order</li>
+			</ul>
+		</div>
+	</div>
+	<div class="w cart">
+		<div class="cart-hd group">
+			<h2>My Shopping Cart</h2>
+			<span id="show2" class="fore"> </span>
+		</div>
+
+		<div id="show">
+			<c:if test="${empty(cart.map) }">
+                <h4 align="center">You haven't bought anything yet</h4>
+            </c:if>
+			<div class="cart-frame">
+				<div class="tl"></div>
+				<div class="tr"></div>
+			</div>
+			<div class="cart-inner">
+				<div class="cart-thead clearfix">
+					<div class="column form">Pictures</div>
+					<div class="column t-goods">Products</div>
+					<div class="column t-price">Price</div>
+					<div class="column t-quantity">Quantity</div>
+					<div class="column t-quantity">Subtotal</div>
+					<div class="column t-action">Operation</div>
+				</div>
+				<div id="product-list" class="cart-tbody">
+					<!-- ************************商品开始********************* -->
+					<div data-bind="rowid:1" class="item item_selected ">
+						<c:forEach var="entry" items="${cart.map }">
+							<div class="item_form clearfix">
+								<div class="cell p-goods">
+									<div class="p-img">
+										<img width="50" height="50" src="../image/${entry.key}.png" />
+									</div>
+									<div class="p-name">${entry.value.computer.brand }  ${entry.value.computer.name }
+							        </div>
+								</div>
+								<div class="cell p-price">
+									<span class="price">${entry.value.computer.price }</span>
+								</div>
+
+								<div class="cell p-quantity">
+									<div class="quantity-form" data-bind="">
+										<input type="text" name="quantity" value="${entry.value.quantity }" style="width:35" onchange="changeQuantity(this,${entry.key },${entry.value.quantity })" />
+									</div>
+								</div>
+								<div class="cell p-remove">
+									<span class="price">${entry.value.price }</span>
+								</div>
+								<div class="cell p-remove">
+									<a class="a1" href="javascript:void(0)"
+										onclick="deleteitem(${entry.key})">delete</a>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+				<!-- product-list结束 -->
+
+				<div class="cart-total clearfix">
+					<div class="control fl clearfix"></div>
+					<div class="total fr">
+						<span id="finalPrice" data-bind="4299.00">¥${cart.price }</span>Total：
+					</div>
+
+				</div>
+			</div>
+			<!-- cart-inner结束 -->
+
+			<div class="cart-button clearfix">
+				<a class="btn continue"
+					href="${pageContext.request.contextPath }/servlet/ListProductServlet"><span
+					class="btn-text">Go Back</span> </a> <a class="checkout"
+					href="${pageContext.request.contextPath }/servlet/PaymentServlet?amount=${cart.price }">Pay
+					Now</a>
+			</div>
+		</div>
+	</div>
   </body>
 </html>

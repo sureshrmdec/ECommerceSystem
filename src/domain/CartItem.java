@@ -1,7 +1,6 @@
 package domain;
 
 public class CartItem {
-	
 	private Computer computer;
 	private int quantity;
 	private double price;

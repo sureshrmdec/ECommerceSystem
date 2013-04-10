@@ -16,9 +16,6 @@ public class Computer {
 		this.price = price;
 		this.description = description;
 	}
-	public Computer() {
-		super();
-	}
 	
 	public String getId() {
 		return id;
@@ -50,5 +47,4 @@ public class Computer {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-		
 }

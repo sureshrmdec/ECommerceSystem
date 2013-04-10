@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -7,25 +7,33 @@
     <title>Renmin Mall</title>
 	<style> 
 	
-	body{
-	    text-align:center;
-	}
-	
      .d1{
-     	border:1px solid red; 
-     	width:300px;
-     	height:150px;
+     	border:0px; 
+     	width:458px;
+     	height:350px;
   		position:relative;
    	    margin:0 auto;     
-        margin-top:15%
+        margin-top:10%;
+        text-align:center
      }
      
      .d2{
-     	font-size:13;
+     	width:458px;
+     	height:298px;  
      }
      
+     .d3{
+     	width:458px;
+     	height:52px;  
+     	background-color:#00A2E8;
+     	text-align:center;
+     	font-color:white;
+        font-size:13
+     }
      .a1{
-        text-decoration:none
+        text-decoration:none;
+        color:white;
+        font-size:large;
      }
      
 　 </style>
@@ -34,9 +42,14 @@
   
   <body>
     <div class="d1">
-       <h3 align="center">Welcome to Renmin Mall</h3>
-       <h4 align="center" ><a class="a1" href="${pageContext.request.contextPath }/servlet/ListProductServlet"  text-decoration: none>browse products</a></h4>
-       <div class="d2">Graduation Project by Bowen Li</div>
+       <div class="d2"><img src="image/welcome.png" ></div>
+       <div class="d3">
+             <a class="a1" href="${pageContext.request.contextPath }/servlet/ListProductServlet" >Browse Products
+             </a>
+       </div>
+     
     </div>
+    
+
   </body>
 </html>

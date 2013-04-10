@@ -14,8 +14,7 @@ public class PaymentRequest extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		request.setCharacterEncoding("GBK");
+request.setCharacterEncoding("GBK");
 		
 		String orderid = request.getParameter("orderid"); //order id
 		String amount = request.getParameter("amount"); //money amount

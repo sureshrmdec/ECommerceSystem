@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="ShoppingCart"
-  id="myeclipse.1364024366965"
-  context-root="/ShoppingCart"
+  name="epaymentsys"
+  id="myeclipse.1365578575158"
+  context-root="/epaymentsys"
   j2ee-spec="5.0"
-  archive="ShoppingCart.war">
+  archive="epaymentsys.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>

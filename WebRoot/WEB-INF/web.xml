@@ -6,36 +6,36 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name></display-name>
   <servlet>
-    <servlet-name>ListProductServlet</servlet-name>
-    <servlet-class>webController.ListProductServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>BuyServlet</servlet-name>
-    <servlet-class>webController.BuyServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ListCartUIServlet</servlet-name>
-    <servlet-class>webUI.ListCartUIServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DeleteItemServlet</servlet-name>
-    <servlet-class>webController.DeleteItemServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ClearCartServlet</servlet-name>
-    <servlet-class>webController.ClearCartServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ChangeQuantityServlet</servlet-name>
-    <servlet-class>webController.ChangeQuantityServlet</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>PaymentRequest</servlet-name>
     <servlet-class>service.PaymentRequest</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>ListProductServlet</servlet-name>
+    <servlet-class>web.controller.ListProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BuyServlet</servlet-name>
+    <servlet-class>web.controller.BuyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListCartServlet</servlet-name>
+    <servlet-class>web.controller.ListCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteItemServlet</servlet-name>
+    <servlet-class>web.controller.DeleteItemServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ClearCartServlet</servlet-name>
+    <servlet-class>web.controller.ClearCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ChangeQuantityServlet</servlet-name>
+    <servlet-class>web.controller.ChangeQuantityServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>PaymentServlet</servlet-name>
-    <servlet-class>webController.PaymentServlet</servlet-class>
+    <servlet-class>web.controller.PaymentServlet</servlet-class>
   </servlet>
 
 
@@ -45,6 +45,10 @@
 
 
 
+  <servlet-mapping>
+    <servlet-name>PaymentRequest</servlet-name>
+    <url-pattern>/servlet/PaymentRequest</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ListProductServlet</servlet-name>
     <url-pattern>/servlet/ListProductServlet</url-pattern>
@@ -54,8 +58,8 @@
     <url-pattern>/servlet/BuyServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>ListCartUIServlet</servlet-name>
-    <url-pattern>/servlet/ListCartUIServlet</url-pattern>
+    <servlet-name>ListCartServlet</servlet-name>
+    <url-pattern>/servlet/ListCartServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DeleteItemServlet</servlet-name>
@@ -68,10 +72,6 @@
   <servlet-mapping>
     <servlet-name>ChangeQuantityServlet</servlet-name>
     <url-pattern>/servlet/ChangeQuantityServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>PaymentRequest</servlet-name>
-    <url-pattern>/servlet/yeepay/PaymentRequest</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>PaymentServlet</servlet-name>
