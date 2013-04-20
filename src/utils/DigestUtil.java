@@ -8,11 +8,6 @@ import java.util.Arrays;
 public class DigestUtil {
 private static String encodingCharset = "UTF-8";
 	
-	/**
-	 * @param aValue
-	 * @param aKey
-	 * @return
-	 */
 	public static String hmacSign(String aValue, String aKey) {
 		byte k_ipad[] = new byte[64];
 		byte k_opad[] = new byte[64];
@@ -40,10 +35,12 @@ private static String encodingCharset = "UTF-8";
 
 			return null;
 		}
+		
 		md.update(k_ipad);
 		md.update(value);
 		byte dg[] = md.digest();
 		md.reset();
+		
 		md.update(k_opad);
 		md.update(dg, 0, 16);
 		dg = md.digest();

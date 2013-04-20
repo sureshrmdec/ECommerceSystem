@@ -40,7 +40,13 @@
                  window.location.href="${pageContext.request.contextPath }/servlet/ChangeQuantityServlet?id="+id+"&quantity="+quantity;
              }
        }
-       
+       function recordHistory(cartPrice){
+     	  var b = window.confirm("Are you sure to pay now？");
+     	  if(b){
+     		  window.location.href="${pageContext.request.contextPath }/servlet/PaymentServlet?amount="+cartPrice;
+
+     	  }
+       }
     </script>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">

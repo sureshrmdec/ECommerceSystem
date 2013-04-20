@@ -31,5 +31,4 @@ public class ChangeQuantityServlet extends HttpServlet {
 
 		doGet(request, response);
 	}
-
 }

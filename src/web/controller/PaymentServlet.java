@@ -29,5 +29,4 @@ public class PaymentServlet extends HttpServlet {
 
 		doGet(request, response);
 	}
-
 }

@@ -105,9 +105,8 @@
 			<div class="cart-button clearfix">
 				<a class="btn continue"
 					href="${pageContext.request.contextPath }/servlet/ListProductServlet"><span
-					class="btn-text">Go Back</span> </a> <a class="checkout"
-					href="${pageContext.request.contextPath }/servlet/PaymentServlet?amount=${cart.price }">Pay
-					Now</a>
+					class="btn-text">Go Back</span> </a> 
+			    <a class="checkout" href="${pageContext.request.contextPath }/servlet/PaymentServlet?amount=${cart.price }" >Pay Now</a>
 			</div>
 		</div>
 	</div>

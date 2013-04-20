@@ -40,11 +40,6 @@
 
 
 
-
-
-
-
-
   <servlet-mapping>
     <servlet-name>PaymentRequest</servlet-name>
     <url-pattern>/servlet/PaymentRequest</url-pattern>
@@ -76,7 +71,7 @@
   <servlet-mapping>
     <servlet-name>PaymentServlet</servlet-name>
     <url-pattern>/servlet/PaymentServlet</url-pattern>
-  </servlet-mapping>	
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

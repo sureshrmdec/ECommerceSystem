@@ -1,10 +1,17 @@
 package db;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
+
+import db.JdbcUtils;
 
 import domain.Computer;
 
@@ -12,18 +19,28 @@ public class DB {
 private static Map map = new LinkedHashMap();
 	
 	static{
-		map.put("1", new Computer("1","Ultrabook","Dell",10000,"11"));
-		map.put("2", new Computer("2","Ultrabook","Lenovo",11500,"13"));
-		map.put("3", new Computer("3","Laptop","Lenovo",4000,"15"));
-		map.put("4", new Computer("4","Laptop","Asus",3000,"15"));
-		map.put("5", new Computer("5","Ultrabook","Lenovo",8000,"11"));
-		map.put("6", new Computer("6","Laptop","Dell",0.01,"15"));
-		map.put("7", new Computer("7","Ultrabook","Asus",11000,"13"));
-		map.put("8", new Computer("8","Ultrabook","Samsung",11500,"13"));
-		map.put("9", new Computer("9","Ultrabook","Lenovo",8000,"13"));
-		map.put("10", new Computer("10","Laptop","Asus",3000,"11"));
-		map.put("11", new Computer("11","Ultrabook","Lenovo",8000,"11"));
-		map.put("12", new Computer("12","Laptop","Samsung",0.01,"15"));
+
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+		try {
+			conn = JdbcUtils.getConnection();
+			String sql = "SELECT * FROM computers";
+			ps = conn.prepareStatement(sql);
+					
+			rs = ps.executeQuery();
+					
+			while(rs.next()){
+				String id = rs.getString("id");
+				map.put(id, new Computer(id, rs.getString("name"),rs.getString("brand"),rs.getDouble("price"),rs.getString("description")));
+			}
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		} finally{
+			JdbcUtils.free(rs,ps,conn);
+		}
+	
 	}
 	
 	public static Map getAll(){

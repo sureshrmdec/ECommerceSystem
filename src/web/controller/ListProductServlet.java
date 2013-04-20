@@ -34,5 +34,4 @@ public class ListProductServlet extends HttpServlet {
 
 		doGet(request, response);
 	}
-
 }

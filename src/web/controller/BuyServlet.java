@@ -15,7 +15,7 @@ public class BuyServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-String id = request.getParameter("id");
+		String id = request.getParameter("id");
 		
 		BusinessService service = new BusinessService();
 		Computer computer = service.findComputer(id);
@@ -30,7 +30,7 @@ String id = request.getParameter("id");
 		//add product to shopping cart 把商品加入用户的购物车
 		cart.add(computer);
 		
-		//response.getRequestDispatcher("${pageContext.request.contextPath }/servlet/ListCartUIServlet");
+		//request.getRequestDispatcher("${pageContext.request.contextPath }/servlet/ListCartUIServlet");
 		response.sendRedirect(request.getContextPath()+"/servlet/ListCartServlet");
 	}
 
@@ -39,5 +39,4 @@ String id = request.getParameter("id");
 
 		doGet(request, response);
 	}
-
 }

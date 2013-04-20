@@ -34,6 +34,4 @@ public class BusinessService {
 		CartItem item = cart.getMap().get(id);
 		item.setQuantity(Integer.parseInt(quantity));
 	}
-	
-	
 }
