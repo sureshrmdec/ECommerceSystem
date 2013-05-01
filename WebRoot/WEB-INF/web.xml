@@ -37,6 +37,11 @@
     <servlet-name>PaymentServlet</servlet-name>
     <servlet-class>web.controller.PaymentServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>PaymentResultResponse</servlet-name>
+    <servlet-class>service.PaymentResultResponse</servlet-class>
+  </servlet>
+
 
 
 
@@ -71,6 +76,10 @@
   <servlet-mapping>
     <servlet-name>PaymentServlet</servlet-name>
     <url-pattern>/servlet/PaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PaymentResultResponse</servlet-name>
+    <url-pattern>/servlet/PaymentResultResponse</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
